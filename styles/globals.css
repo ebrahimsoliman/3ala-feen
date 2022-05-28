@@ -20,6 +20,10 @@ a {
     width: 300px;
 }
 
+.navbar {
+    top: 0;
+}
+
 .img-back {
     filter: blur(5px);
 }

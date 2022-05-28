@@ -5,10 +5,12 @@ import Header from "../components/shared/nav";
 import FooterComponent from "../components/shared/footerComponent";
 import {Fragment} from "react";
 
+/*0-shared between pages*/
 function MyApp({Component, pageProps}) {
 
     return (<Fragment>
         <Header/>
+        {/*1- pages content change based on file-based router*/}
         <Component {...pageProps} />
         <FooterComponent/>
     </Fragment>)

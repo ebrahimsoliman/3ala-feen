@@ -3,14 +3,18 @@ import {Container, Dropdown, Nav, Navbar, NavItem, NavLink} from "react-bootstra
 
 function Header() {
     return (
+        //navigation bar by Bootstrap
         <Navbar className={'fxd'} collapseOnSelect expand="lg" bg={'white'} variant="light">
             <Container className={"navmenu"}>
+                {/*Logo*/}
                 <Navbar.Brand href="#home" className={'navBrand'}> <img src="/images/shared/logo-en.jpeg"
                                                                         className={'img-fluid'}
                                                                         alt=""/></Navbar.Brand>
+                {/*Responsive navbar*/}
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="m-auto">
+                        {/*Nav Links*/}
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/destnation">Destinations</Nav.Link>
                         <Nav.Link href="/about">About Us</Nav.Link>
@@ -19,6 +23,7 @@ function Header() {
                         <Nav.Link href="/auth/signin">Login</Nav.Link>
                         <Nav.Link href="/auth/signup">Join</Nav.Link>
                     </Nav>
+                    {/*User Drop Down*/}
                     <div>
                         <Dropdown as={NavItem}>
                             <Dropdown.Toggle as={NavLink}><i className="fa-solid fa-user"></i></Dropdown.Toggle>
@@ -30,7 +35,7 @@ function Header() {
                                 <Dropdown.Item>Package 1</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                        </div>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

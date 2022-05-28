@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import ReactCardFlip from 'react-card-flip';
 import {Button, Col, Container, Nav, Row} from "react-bootstrap";
@@ -12,61 +11,67 @@ function DestCom() {
         setIsFlipped(tmp);
     }
 
-    function filter(gov) {
-        let tmp = [...crd];
-        tmp = tmp.filter(function (item) {
-            return item.gov === gov
-        });
+    function checkFilter(item, gov) {
 
+        if (gov === 'All')
+            return true
+        else
+            return item.gov === gov
+    }
+
+    function filter(gov) {
+        let tmp = [...destinations];
+        tmp = tmp.filter((item) => checkFilter(item, gov));
         setCards(tmp);
     }
 
-    let govs = ['Alexandria', 'Cairo', 'Aswan', 'Luxor', 'Sinai']
-    let crd = [{
-        gov: 'Alexandria', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    let govs = ['All', 'Alexandria', 'Cairo', 'Aswan', 'Luxor', 'Sinai']
+    let destinations = [{
+        gov: 'Alexandria', image: '/images/home/distenations/1-front.jpg', text: `Alexandria ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Cairo', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Cairo', image: '/images/home/distenations/1-front.jpg', text: `Cairo ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Luxor', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Luxor', image: '/images/home/distenations/1-front.jpg', text: `Luxor ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Aswan', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Aswan', image: '/images/home/distenations/1-front.jpg', text: `Aswan ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Alexandria', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Alexandria', image: '/images/home/distenations/1-front.jpg', text: `Alexandria ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Sinai', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Sinai', image: '/images/home/distenations/1-front.jpg', text: `Sinai ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }, {
-        gov: 'Cairo', image: '/images/home/distenations/1-front.jpg', text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        gov: 'Cairo', image: '/images/home/distenations/1-front.jpg', text: `Cairo ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus aperiam architecto
                             debitis delectus distinctio dolorem dolorum est facere harum ipsam, nam nihil quisquam
                             reiciendis repellat saepe sit soluta tenetur vel.`
     }]
 
 
-    let [cards, setCards] = useState([...crd])
+    let [cards, setCards] = useState([...destinations])
     let [isFlipped, setIsFlipped] = useState(Array(cards.length).fill(false))
     return (<Container className={'my-5 '}>
         <Row><Col><Nav variant="tabs" defaultActiveKey="/home">
-            {govs.map((gov, index) => <Nav.Item key={index}>
-                <Nav.Link onClick={() => filter(gov)}>{gov}</Nav.Link>
-            </Nav.Item>)}
+            {govs.map((gov, index) =>
+                <Nav.Item key={index}>
+                    <Nav.Link onClick={() => filter(gov)}>{gov}</Nav.Link>
+                </Nav.Item>)}
 
 
         </Nav></Col></Row>

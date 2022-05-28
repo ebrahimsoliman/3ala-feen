@@ -2,7 +2,14 @@ import React from 'react';
 import {Button, Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
 
 function FooterComponent() {
-    return (<div  className={'footer py-5'}><Container><Row>
+    /*
+    * Grid Layout By Bootstrap
+    * Divides page content into grid components by rows and columns
+    * each row has 12 columns
+    * it can be nested (every column can contain new grid lay out (rows and columns))
+    * and it has responsive aspects like col-12 (starting from extra-small screens) and col-md-6 (in medium screens)*/
+    return (<div  className={'footer py-5'}>
+        <Container><Row>
         <Col md={3}><img src="/images/shared/sympol.png" className={'img-fluid'} alt=""/></Col>
         <Col className={'flx'}>
             <div><h4>Contact Us</h4>
@@ -23,13 +30,10 @@ function FooterComponent() {
                     <li>Contact Us</li>
                 </ul>
             </div>
-
-
         </Col>
         <Col className={'flx'}>
             <div>
                 <h4>Get latest news & offers</h4>
-
                 <InputGroup className="mb-3">
                     <FormControl
                         placeholder="Recipient's username"

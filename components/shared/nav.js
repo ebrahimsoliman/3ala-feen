@@ -1,13 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Container, Dropdown, Nav, Navbar, NavItem, NavLink} from "react-bootstrap";
+import {useRouter} from "next/router";
 
 function Header() {
-    return (
-        //navigation bar by Bootstrap
+    const router = useRouter()
+    const [user, setUser] = useState(null)
+    if (typeof window != "undefined") {
+        window.addEventListener('storage', () => {
+            console.log('ss')
+            setUser(JSON.parse(localStorage.getItem('user')))
+        })
+    }
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem('user')))
+    }, [])
+
+
+    function logout() {
+        localStorage.removeItem('user')
+        setUser(null)
+        window.location.href = '/auth/signin'
+
+    }
+
+    return (//navigation bar by Bootstrap
         <Navbar className={'fxd'} collapseOnSelect expand="lg" bg={'white'} variant="light">
             <Container className={"navmenu"}>
                 {/*Logo*/}
-                <Navbar.Brand href="#home" className={'navBrand'}> <img src="/images/shared/logo-en.jpeg"
+                <Navbar.Brand href={'/'} className={'navBrand'}> <img src="/images/shared/logo-en.jpeg"
                                                                         className={'img-fluid'}
                                                                         alt=""/></Navbar.Brand>
                 {/*Responsive navbar*/}
@@ -20,22 +40,21 @@ function Header() {
                         <Nav.Link href="/about">About Us</Nav.Link>
                         <Nav.Link href="/packages">Packages</Nav.Link>
                         <Nav.Link href="/contact">Contact us</Nav.Link>
-                        <Nav.Link href="/auth/signin">Login</Nav.Link>
-                        <Nav.Link href="/auth/signup">Join</Nav.Link>
+                        {!user ? <Nav.Link href="/auth/signin">Login</Nav.Link> : ''}
+                        {!user ? <Nav.Link href="/auth/signup">Join</Nav.Link> : ''}
                     </Nav>
                     {/*User Drop Down*/}
-                    <div>
+                    {user ? <div>
                         <Dropdown as={NavItem}>
                             <Dropdown.Toggle as={NavLink}><i className="fa-solid fa-user"></i></Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item>Username</Dropdown.Item>
-                                <Dropdown.Item>Address</Dropdown.Item>
-                                <Dropdown.Item>Phone number</Dropdown.Item>
-                                <Dropdown.Item>Package 1</Dropdown.Item>
-                                <Dropdown.Item>Package 1</Dropdown.Item>
+                                <Dropdown.Item>{user.user.username}</Dropdown.Item>
+                                <Dropdown.Item>{user.user.address}</Dropdown.Item>
+                                <Dropdown.Item>{user.user.phone}</Dropdown.Item>
+                                <Dropdown.Item onClick={() => logout()}>log out</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    </div>
+                    </div> : ''}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

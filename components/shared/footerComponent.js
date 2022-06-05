@@ -41,11 +41,11 @@ function FooterComponent() {
                         aria-describedby="basic-addon2"
                     />
                     <Button variant="outline-secondary" id="button-addon2">
-                        Button
+                        Subscribe
                     </Button>
                 </InputGroup>
                 <p>Join us - get social</p>
-                <p><a href=""></a><a href=""></a><a href=""></a></p></div>
+            </div>
         </Col>
     </Row></Container></div>);
 }

@@ -13,7 +13,31 @@ I
 pages/destnation/index.js,d/c/dce871edfd216a09fc41c45176a9b302f08f15cc
 E
 pages/auth/profile.js,8/d/8ddcb1b25f84de29131c5bac90c6dff615f18140
-D
-pages/auth/signin.js,6/1/61c11a50d8f45b2f6382a03a9902047ed7c61550
-D
-pages/auth/signup.js,3/9/39e72dccf4fe6379ba20dfb7a8e637d3d7055a33
+8
+.babelrc,b/c/bcac7464521b8c19a2372c739f6dc9e9ab7dfc80
+9
+	next.json,0/7/07f58d281e9792e0e233dbd319a0554d1fae9fa7
+G
+public/animation/1.json,b/0/b0a490955c62b5f76e82804c65e614c45856682b
+<
+package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
+G
+pages/packages/index.js,6/5/65edf936914c1f4a89a02733d63356f68683c88d
+B
+styles/globals.css,8/c/8c258232cbcd5d83991c524a9e86c8d3f984fc57
+Q
+!components/destnations/destcom.js,c/9/c99df95c9359867a4f0a68eab569dc98d3d8803b
+K
+components/home/carousel.js,a/5/a5b4b86d6ce59a1dbd535b435e2a65f773e5e711
+H
+components/home/about.js,2/b/2b1e94f44bdc88e64084f41feb82a2e8125554cc
+K
+components/home/packages.js,d/9/d9f233aad988af3f44799f4f2c9303015d147d43
+O
+components/home/destinations.js,8/0/80c1eca3ae298be470722153802daa1bfea1116c
+J
+components/home/contact.js,9/1/91c2540bf0a4b555831b2cc6365ead81ed0346b1
+>
+pages/index.js,1/7/17f8c719689e4f3221289153187a6ca1fb24dd87
+=
+pages/_app.js,2/0/202812cedbed29fdf712361f0e7a919932f9e751
